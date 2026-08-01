@@ -206,14 +206,31 @@
   .bub .who{font-size:11px;font-weight:600;color:var(--cordovan);margin-bottom:3px;display:block}
   @media(max-width:760px){.between-grid{grid-template-columns:1fr;gap:36px}}
 
+  /* ---------- hero host chip ---------- */
+  .host-chip{display:inline-flex;align-items:center;gap:12px;margin-top:6px}
+  .host-chip .avatars{display:inline-flex}
+  .host-chip .avatars img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--paper);box-shadow:0 2px 8px rgba(26,23,20,.15)}
+  .host-chip .avatars img + img{margin-left:-14px}
+  .hosts-line{margin-top:14px}
+
   /* ---------- hosts ---------- */
   .hosts-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
-  .host{background:var(--bone);padding:38px 34px}
+  .host{background:var(--bone);padding:38px 34px;position:relative}
+  .host-head{display:flex;align-items:center;gap:18px;margin-bottom:18px}
+  .host-avatar{width:82px;height:82px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--line);box-shadow:0 4px 14px rgba(26,23,20,.08)}
+  .host-head-meta{flex:1;min-width:0}
   .host .mono{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-weight:600}
-  .host .name{font-family:var(--display);font-size:1.9rem;font-weight:500;margin:14px 0 4px}
-  .host .role{color:var(--muted);font-size:.95rem;margin-bottom:18px}
-  .host p{color:var(--ink);font-size:.99rem;opacity:.85}
-  @media(max-width:680px){.hosts-grid{grid-template-columns:1fr}}
+  .host .name{font-family:var(--display);font-size:1.9rem;font-weight:500;margin:6px 0 2px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .host .role{color:var(--muted);font-size:.95rem}
+  .host p{color:var(--ink);font-size:.99rem;opacity:.85;margin-top:6px}
+  .host-linkedin{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--paper);color:var(--cordovan);border:1px solid var(--line);transition:background .18s ease,color .18s ease,transform .18s ease;flex-shrink:0}
+  .host-linkedin:hover{background:var(--cordovan);color:var(--bone);transform:translateY(-1px)}
+  .host-linkedin svg{width:16px;height:16px}
+  @media(max-width:680px){
+    .hosts-grid{grid-template-columns:1fr}
+    .host-head{gap:14px}
+    .host-avatar{width:64px;height:64px}
+  }
 
   /* ---------- cta ---------- */
   .cta{background:var(--cordovan-deep);color:var(--paper);text-align:center}
@@ -307,7 +324,13 @@
       <span class="eyebrow">A peer group for MSP leaders</span>
       <h1>Twelve operators.<br>One table.<br><em>No noise.</em></h1>
       <p class="lead">MSPeer brings founders and C-suite from serious managed service providers into one room — to share what's working, pressure-test the hard calls, and buy better together. Relaxed, honest, and capped at twelve.</p>
-      <p class="hosts-line">Hosted by <b>Jay Ball</b>, CEO of Flotek Group, and <b>Danny Mills</b>, CRO of Everything Tech.</p>
+      <div class="host-chip">
+        <div class="avatars">
+          <img src="assets/jay.jpg" alt="Jay Ball" width="44" height="44" loading="lazy" />
+          <img src="assets/danny.jpg" alt="Danny Mills" width="44" height="44" loading="lazy" />
+        </div>
+        <p class="hosts-line" style="margin-top:0">Hosted by <b>Jay Ball</b>, CEO of Flotek Group, and <b>Danny Mills</b>, CRO of Everything Tech.</p>
+      </div>
       <div class="hero-cta">
         <a href="#apply" class="btn">Request a seat</a>
         <a href="#how" class="btn ghost">See how it works</a>
@@ -509,15 +532,33 @@
     </div>
     <div class="hosts-grid reveal">
       <div class="host">
-        <div class="mono">Co-founder · Chair</div>
-        <div class="name">Jay Ball</div>
-        <div class="role">CEO, Flotek Group</div>
+        <div class="host-head">
+          <img class="host-avatar" src="assets/jay.jpg" alt="Jay Ball" width="82" height="82" loading="lazy" />
+          <div class="host-head-meta">
+            <div class="mono">Co-founder · Chair</div>
+            <div class="name">Jay Ball
+              <a class="host-linkedin" href="https://www.linkedin.com/in/jayb4ll/" target="_blank" rel="noopener" aria-label="Jay Ball on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              </a>
+            </div>
+            <div class="role">CEO, Flotek Group</div>
+          </div>
+        </div>
         <p>Founder and director at Flotek, building a managed service provider across IT, voice, virtual desktop and AI-led services. Previously founded and exited a telecoms business. Brings the operator's view to every table.</p>
       </div>
       <div class="host">
-        <div class="mono">Co-founder · Chair</div>
-        <div class="name">Danny Mills</div>
-        <div class="role">CRO, Everything Tech</div>
+        <div class="host-head">
+          <img class="host-avatar" src="assets/danny.jpg" alt="Danny Mills" width="82" height="82" loading="lazy" />
+          <div class="host-head-meta">
+            <div class="mono">Co-founder · Chair</div>
+            <div class="name">Danny Mills
+              <a class="host-linkedin" href="https://www.linkedin.com/in/danny-mills-0033271b/" target="_blank" rel="noopener" aria-label="Danny Mills on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              </a>
+            </div>
+            <div class="role">CRO, Everything Tech</div>
+          </div>
+        </div>
         <p>Chief Revenue Officer at Everything Tech, with a front-row seat on what's working commercially across the channel. Keeps the group focused on growth, pricing and the conversations that move numbers.</p>
       </div>
     </div>
@@ -532,6 +573,11 @@
     <p>Seats are capped at twelve and approved by the existing members. Tell us about your business and we'll be in touch if there's a fit.</p>
 
     <form class="form-card" id="seatForm" novalidate>
+      <!-- Web3Forms delivery: submissions arrive as email to jb@flotek.io -->
+      <input type="hidden" name="access_key" value="54e3c33a-11c7-463a-9620-03ab2824cf51" />
+      <input type="hidden" name="subject" value="MSPeer — new request-a-seat submission" />
+      <input type="hidden" name="from_name" value="MSPeer website" />
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
       <div class="frow">
         <div class="field">
           <label for="f-name">Your name</label>
@@ -617,13 +663,10 @@
     }
   })();
 
-  // Request-a-seat form
-  // Works with zero backend: opens the visitor's email pre-filled.
-  // To capture submissions to an inbox instead, set FORM_ENDPOINT below to a
-  // Formspree / Cloudflare / Web3Forms URL and the form will POST to it.
+  // Request-a-seat form — posts to Web3Forms, delivered by email to jb@flotek.io.
+  // If Web3Forms is unreachable, falls back to a pre-filled mailto so no lead is lost.
   (function(){
-    const FORM_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxxx"
-    const CONTACT_EMAIL  = "hello@mspeer.co.uk"; // change to the real inbox
+    const CONTACT_EMAIL = "jb@flotek.io";
     const form = document.getElementById('seatForm');
     const success = document.getElementById('seatSuccess');
     if(!form) return;
@@ -632,10 +675,11 @@
       e.preventDefault();
       if(!form.reportValidity()) return;
       const d = Object.fromEntries(new FormData(form).entries());
+      const key = form.querySelector('input[name="access_key"]').value;
 
-      if(FORM_ENDPOINT){
+      if(key && key !== "YOUR_WEB3FORMS_ACCESS_KEY_HERE"){
         try{
-          const r = await fetch(FORM_ENDPOINT,{
+          const r = await fetch('https://api.web3forms.com/submit',{
             method:'POST',
             headers:{'Accept':'application/json'},
             body:new FormData(form)
@@ -644,7 +688,7 @@
         }catch(err){ /* fall through to mailto */ }
       }
 
-      // Fallback: open a pre-filled email
+      // Fallback: open a pre-filled email if Web3Forms fails or isn't configured yet
       const subject = encodeURIComponent('MSPeer — Request a seat: ' + (d.company||''));
       const body = encodeURIComponent(
         'Name: ' + (d.name||'') + '\n' +
