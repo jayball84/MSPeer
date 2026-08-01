@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MSPeer — A peer group for MSP leaders</title>
+<meta name="description" content="MSPeer brings together founders and C-suite from £1m+ managed service providers to share, support and buy better — together. Relaxed, honest, and capped at twelve. Hosted by Jay Ball (Flotek Group) and Danny Mills (Everything Tech)." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#1A1714;
+    --cordovan:#57211F;
+    --cordovan-deep:#3F1817;
+    --brass:#B0863C;
+    --brass-soft:#C9A65E;
+    --paper:#F3EFE7;
+    --bone:#FBF9F4;
+    --muted:#6E655A;
+    --line:#E0D8C9;
+    --line-dark:rgba(255,255,255,.14);
+
+    --display:"Fraunces",Georgia,serif;
+    --body:"Inter",system-ui,-apple-system,sans-serif;
+
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  /* ---------- type helpers ---------- */
+  .eyebrow{
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:600;color:var(--brass);
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{
+    content:"";width:26px;height:1px;background:var(--brass);opacity:.7;
+  }
+  h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.04;letter-spacing:-.01em}
+  .lead{font-size:1.18rem;color:var(--muted);max-width:46ch}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(243,239,231,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{font-family:var(--display);font-size:1.45rem;font-weight:600;letter-spacing:-.02em;display:flex;align-items:baseline;gap:2px}
+  .brand b{color:var(--brass);font-weight:600}
+  .nav-right{display:flex;align-items:center;gap:26px}
+  .nav-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--body);font-weight:600;font-size:.92rem;
+    background:var(--ink);color:var(--paper);
+    padding:11px 20px;border-radius:2px;border:1px solid var(--ink);
+    transition:transform .15s ease,background .2s ease;
+    cursor:pointer;
+  }
+  .btn:hover{background:var(--cordovan);border-color:var(--cordovan);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn.brass{background:var(--brass);border-color:var(--brass);color:var(--ink)}
+  .btn.brass:hover{background:var(--brass-soft);border-color:var(--brass-soft)}
+  @media(max-width:680px){.nav-tag{display:none}}
+
+  /* ---------- next event bar ---------- */
+  .nextbar{background:var(--ink);color:var(--paper)}
+  .nextbar-in{display:flex;align-items:center;gap:12px;padding:11px 28px;font-size:.86rem;flex-wrap:wrap}
+  .ne-dot{width:8px;height:8px;border-radius:50%;background:var(--brass-soft);box-shadow:0 0 0 0 rgba(201,166,94,.6);animation:pulse 2.4s ease-out infinite;flex-shrink:0}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,166,94,.55)}70%{box-shadow:0 0 0 8px rgba(201,166,94,0)}100%{box-shadow:0 0 0 0 rgba(201,166,94,0)}}
+  .ne-label{text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:600;color:var(--brass-soft)}
+  .ne-date{font-weight:600}
+  .ne-sep{color:var(--muted)}
+  .ne-meta{color:rgba(243,239,231,.66)}
+  .ne-link{margin-left:auto;font-weight:600;color:var(--brass-soft);white-space:nowrap}
+  .ne-link:hover{color:var(--paper)}
+  @media(max-width:680px){.ne-meta,.ne-sep{display:none}.ne-link{margin-left:0}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:64px 0 56px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.5rem);margin:22px 0 22px}
+  .hero h1 em{font-style:italic;color:var(--cordovan)}
+  .hero .lead{font-size:1.22rem;max-width:40ch}
+  .hosts-line{
+    margin-top:30px;font-size:.96rem;color:var(--ink);
+    border-left:2px solid var(--brass);padding-left:16px;
+  }
+  .hosts-line b{font-weight:600}
+  .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+
+  /* ---------- the table (signature) ---------- */
+  .table-fig{position:relative;width:100%;max-width:420px;margin:0 auto}
+  .table-fig svg{width:100%;height:auto;overflow:visible}
+  .table-caption{
+    text-align:center;margin-top:18px;
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600;
+  }
+  .seat{transform-box:fill-box;transform-origin:center;animation:seatIn .5s ease both}
+  @keyframes seatIn{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+
+  /* ---------- mission strip ---------- */
+  .mission{background:var(--ink);color:var(--paper)}
+  .mission .wrap{padding:62px 28px}
+  .mission p{
+    font-family:var(--display);font-size:clamp(1.5rem,3.4vw,2.3rem);
+    line-height:1.28;max-width:24ch;font-weight:400;
+  }
+  .mission p span{color:var(--brass-soft)}
+  .mission .eyebrow{margin-bottom:22px}
+
+  /* ---------- section frame ---------- */
+  section.block{padding:90px 0}
+  .sec-head{max-width:60ch;margin-bottom:52px}
+  .sec-head h2{font-size:clamp(2rem,4.4vw,3rem);margin:18px 0 18px}
+  .sec-head .lead{max-width:54ch}
+
+  /* ---------- criteria ---------- */
+  .crit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .crit{background:var(--bone);padding:34px 32px}
+  .crit .tag{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .crit .num{
+    font-family:var(--display);font-size:.95rem;color:var(--brass);
+    border:1px solid var(--brass);border-radius:50%;width:30px;height:30px;
+    display:grid;place-items:center;flex-shrink:0;font-weight:600;
+  }
+  .crit h3{font-size:1.32rem;font-weight:600}
+  .crit p{color:var(--muted);font-size:.98rem}
+  @media(max-width:760px){.crit-grid{grid-template-columns:1fr}}
+
+  /* ---------- format ---------- */
+  .format{background:var(--cordovan);color:var(--paper)}
+  .format .eyebrow{color:var(--brass-soft)}
+  .format .eyebrow::before{background:var(--brass-soft)}
+  .format .sec-head .lead{color:rgba(243,239,231,.72)}
+  .fmt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+  .fmt{border-top:1px solid var(--line-dark);padding-top:24px}
+  .fmt .k{
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--brass-soft);font-weight:600;margin-bottom:16px;
+  }
+  .fmt h3{font-size:1.5rem;font-weight:500;margin-bottom:12px}
+  .fmt p{color:rgba(243,239,231,.78);font-size:1rem}
+  @media(max-width:760px){.fmt-grid{grid-template-columns:1fr;gap:8px}.fmt{padding:24px 0}}
+
+  /* ---------- agenda timeline ---------- */
+  .agenda-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+  .timeline{position:relative;padding-left:30px}
+  .timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:var(--line)}
+  .step{position:relative;padding:0 0 36px}
+  .step:last-child{padding-bottom:0}
+  .step::before{
+    content:"";position:absolute;left:-30px;top:6px;width:15px;height:15px;
+    border-radius:50%;background:var(--paper);border:2px solid var(--brass);
+  }
+  .step h3{font-size:1.22rem;font-weight:600;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.97rem}
+  .step .when{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:6px}
+
+  .scores{background:var(--bone);border:1px solid var(--line);padding:34px 30px}
+  .scores .eyebrow{margin-bottom:18px}
+  .scores h3{font-size:1.5rem;font-weight:500;margin-bottom:8px}
+  .scores p{color:var(--muted);font-size:.98rem;margin-bottom:26px}
+  .dials{display:flex;gap:14px}
+  .dial{flex:1;text-align:center}
+  .dial svg{width:100%;height:auto;max-width:96px;margin:0 auto}
+  .dial .lab{font-family:var(--display);font-size:1.05rem;margin-top:8px;font-weight:600}
+  .dial .sub{font-size:11px;color:var(--muted);letter-spacing:.04em}
+  @media(max-width:860px){.agenda-grid{grid-template-columns:1fr;gap:44px}}
+
+  /* ---------- facts ---------- */
+  .facts{background:var(--ink);color:var(--paper)}
+  .facts .wrap{padding:60px 28px}
+  .fact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+  .fact{border-left:1px solid var(--line-dark);padding-left:20px}
+  .fact .n{font-family:var(--display);font-size:2.6rem;line-height:1;color:var(--brass-soft);font-weight:500}
+  .fact .l{font-size:.84rem;color:rgba(243,239,231,.7);margin-top:10px;letter-spacing:.04em}
+  @media(max-width:760px){.fact-grid{grid-template-columns:repeat(2,1fr);gap:32px}}
+
+  /* ---------- whatsapp / between ---------- */
+  .between-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .between .lead{max-width:48ch;font-size:1.1rem}
+  .chat{background:var(--bone);border:1px solid var(--line);border-radius:6px;padding:22px;box-shadow:0 14px 40px -24px rgba(40,30,20,.5)}
+  .bub{max-width:78%;padding:11px 15px;border-radius:14px;font-size:.94rem;margin-bottom:12px;line-height:1.45}
+  .bub.them{background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px}
+  .bub.me{background:#DCF3D6;margin-left:auto;border-bottom-right-radius:4px}
+  .bub .who{font-size:11px;font-weight:600;color:var(--cordovan);margin-bottom:3px;display:block}
+  @media(max-width:760px){.between-grid{grid-template-columns:1fr;gap:36px}}
+
+  /* ---------- hosts ---------- */
+  .hosts-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .host{background:var(--bone);padding:38px 34px}
+  .host .mono{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-weight:600}
+  .host .name{font-family:var(--display);font-size:1.9rem;font-weight:500;margin:14px 0 4px}
+  .host .role{color:var(--muted);font-size:.95rem;margin-bottom:18px}
+  .host p{color:var(--ink);font-size:.99rem;opacity:.85}
+  @media(max-width:680px){.hosts-grid{grid-template-columns:1fr}}
+
+  /* ---------- cta ---------- */
+  .cta{background:var(--cordovan-deep);color:var(--paper);text-align:center}
+  .cta .wrap{padding:100px 28px}
+  .cta .eyebrow{color:var(--brass-soft);justify-content:center}
+  .cta .eyebrow::before{background:var(--brass-soft)}
+  .cta h2{font-size:clamp(2.2rem,5vw,3.4rem);margin:22px auto 22px;max-width:18ch}
+  .cta p{color:rgba(243,239,231,.78);max-width:48ch;margin:0 auto 36px;font-size:1.08rem}
+  .cta .btn{padding:15px 30px;font-size:1rem}
+
+  /* ---------- form ---------- */
+  .form-card{
+    max-width:680px;margin:8px auto 0;text-align:left;
+    background:rgba(243,239,231,.04);border:1px solid var(--line-dark);
+    border-radius:6px;padding:34px;
+  }
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+  .field{display:flex;flex-direction:column;gap:7px}
+  .field.full{grid-column:1 / -1}
+  .field label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--brass-soft)}
+  .field input,.field select,.field textarea{
+    font-family:var(--body);font-size:.97rem;color:var(--paper);
+    background:rgba(0,0,0,.18);border:1px solid var(--line-dark);
+    border-radius:3px;padding:12px 14px;width:100%;
+  }
+  .field textarea{resize:vertical;min-height:96px}
+  .field input::placeholder,.field textarea::placeholder{color:rgba(243,239,231,.4)}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brass);box-shadow:0 0 0 3px rgba(176,134,60,.25)}
+  .field select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%23C9A65E' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 14px center}
+  .field select option{color:#1A1714}
+  .form-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:6px}
+  .form-note{font-size:.82rem;color:rgba(243,239,231,.55);max-width:34ch;text-align:left}
+  .form-success{
+    display:none;text-align:center;padding:30px 10px;
+  }
+  .form-success.show{display:block}
+  .form-success h3{font-size:1.6rem;font-weight:500;color:var(--brass-soft);margin-bottom:10px}
+  .form-success p{color:rgba(243,239,231,.8);margin:0 auto;max-width:42ch}
+  @media(max-width:560px){.frow{grid-template-columns:1fr}.form-card{padding:24px}}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:rgba(243,239,231,.6);border-top:1px solid var(--line-dark)}
+  footer .wrap{padding:40px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  footer .brand{color:var(--paper);font-size:1.2rem}
+  footer .runby{font-size:.86rem}
+  footer .runby b{color:var(--brass-soft);font-weight:600}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:48px}
+    .table-fig{max-width:340px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">MS<b>Peer</b></div>
+    <nav class="nav-right">
+      <span class="nav-tag">By invitation</span>
+      <a href="#apply" class="btn">Request a seat</a>
+    </nav>
+  </div>
+</header>
+
+<!-- NEXT EVENT BAR -->
+<div class="nextbar">
+  <div class="wrap nextbar-in">
+    <span class="ne-dot" aria-hidden="true"></span>
+    <span class="ne-label">Next event</span>
+    <span class="ne-date">Date TBC</span>
+    <span class="ne-sep">·</span>
+    <span class="ne-meta">Thursday · venue rotates between partners</span>
+    <a href="#apply" class="ne-link">Register interest →</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">A peer group for MSP leaders</span>
+      <h1>Twelve operators.<br>One table.<br><em>No noise.</em></h1>
+      <p class="lead">MSPeer brings founders and C-suite from serious managed service providers into one room — to share what's working, pressure-test the hard calls, and buy better together. Relaxed, honest, and capped at twelve.</p>
+      <p class="hosts-line">Hosted by <b>Jay Ball</b>, CEO of Flotek Group, and <b>Danny Mills</b>, CRO of Everything Tech.</p>
+      <div class="hero-cta">
+        <a href="#apply" class="btn">Request a seat</a>
+        <a href="#how" class="btn ghost">See how it works</a>
+      </div>
+    </div>
+    <div>
+      <figure class="table-fig">
+        <svg viewBox="0 0 360 360" role="img" aria-label="A round table with twelve seats, several taken">
+          <!-- table -->
+          <circle cx="180" cy="180" r="92" fill="none" stroke="var(--line)" stroke-width="1.5"/>
+          <circle cx="180" cy="180" r="86" fill="var(--bone)" stroke="var(--brass)" stroke-width="1" stroke-opacity=".5"/>
+          <text x="180" y="170" text-anchor="middle" font-family="Fraunces, serif" font-size="44" font-weight="600" fill="var(--cordovan)">12</text>
+          <text x="180" y="198" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" letter-spacing="3" fill="var(--muted)">SEATS</text>
+          <!-- seats generated by JS -->
+          <g id="seats"></g>
+        </svg>
+        <figcaption class="table-caption">Capped at twelve · Members approve members</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="wrap">
+    <span class="eyebrow">The point of it</span>
+    <p>Bring together MSPs who can genuinely <span>share, support and benefit</span> from one another. A peer group, not a sales pitch.</p>
+  </div>
+</section>
+
+<!-- CRITERIA -->
+<section class="block" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Who's in the room</span>
+      <h2>The bar is high — and that's the whole point.</h2>
+      <p class="lead">A peer group lives or dies on who's around the table. We keep the criteria tight so every conversation is worth your Thursday, and nobody's translating their world for outsiders.</p>
+    </div>
+    <div class="crit-grid reveal">
+      <div class="crit">
+        <div class="tag"><span class="num">£</span><h3>£1m+ revenue</h3></div>
+        <p>Everyone has already solved problems you're hitting now — and is about to hit ones you've already solved. That's where the value sits.</p>
+      </div>
+      <div class="crit">
+        <div class="tag"><span class="num">C</span><h3>C-level, owner or founder</h3></div>
+        <p>Decisions get made in the room, not carried back to someone who wasn't there. You're talking to people who can actually act.</p>
+      </div>
+      <div class="crit">
+        <div class="tag"><span class="num">M</span><h3>A genuine MSP</h3></div>
+        <p>Shared context means shared shorthand. Same fights, same vendors, same margins — no need to explain the basics.</p>
+      </div>
+      <div class="crit">
+        <div class="tag"><span class="num">✓</span><h3>Show up, every time</h3></div>
+        <p>Every two months, in person. A board-level stand-in is fine, but trust only compounds when the same faces keep coming back.</p>
+      </div>
+      <div class="crit">
+        <div class="tag"><span class="num">12</span><h3>Twelve and no more</h3></div>
+        <p>Small enough that everyone speaks and gets heard. Large enough to give you real range of experience to draw on.</p>
+      </div>
+      <div class="crit">
+        <div class="tag"><span class="num">→</span><h3>Members approve members</h3></div>
+        <p>New seats are agreed by the room to avoid conflicts. You'll never find yourself sitting across from a direct competitor by surprise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMAT -->
+<section class="block format">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Where &amp; how we meet</span>
+      <h2>Around each other's boardroom tables.</h2>
+      <p class="lead">We rotate the venue between partners. Whoever hosts opens the day with a walkthrough of their own business — the real version, not the website version.</p>
+    </div>
+    <div class="fmt-grid reveal">
+      <div class="fmt">
+        <div class="k">The host</div>
+        <h3>Rotating boardrooms</h3>
+        <p>Each meeting lands in a different partner's boardroom. The host runs an intro and walkthrough of how they actually operate — the wins, the scars, the open questions.</p>
+      </div>
+      <div class="fmt">
+        <div class="k">The guest</div>
+        <h3>One vendor, two hours</h3>
+        <p>A vendor joins each meeting to introduce their company and products — and how they help MSPs — with up to a two-hour spot and special group pricing for the room.</p>
+      </div>
+      <div class="fmt">
+        <div class="k">The brief</div>
+        <h3>Business insights</h3>
+        <p>A short, timely session on something the room needs to know — Cyber Essentials changes, team benefits, regulation, whatever's moving.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The running order</span>
+      <h2>How a meeting actually runs.</h2>
+    </div>
+    <div class="agenda-grid">
+      <div class="scores reveal">
+        <span class="eyebrow">First on the agenda</span>
+        <h3>Scores on the doors</h3>
+        <p>A quick, honest read across three areas — so the room knows who needs propping up this round, and where.</p>
+        <div class="dials">
+          <div class="dial">
+            <svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="25" fill="none" stroke="var(--line)" stroke-width="6"/><circle cx="30" cy="30" r="25" fill="none" stroke="var(--brass)" stroke-width="6" stroke-linecap="round" stroke-dasharray="157" stroke-dashoffset="47" transform="rotate(-90 30 30)"/></svg>
+            <div class="lab">Business</div><div class="sub">the numbers</div>
+          </div>
+          <div class="dial">
+            <svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="25" fill="none" stroke="var(--line)" stroke-width="6"/><circle cx="30" cy="30" r="25" fill="none" stroke="var(--cordovan)" stroke-width="6" stroke-linecap="round" stroke-dasharray="157" stroke-dashoffset="80" transform="rotate(-90 30 30)"/></svg>
+            <div class="lab">Personal</div><div class="sub">life outside</div>
+          </div>
+          <div class="dial">
+            <svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="25" fill="none" stroke="var(--line)" stroke-width="6"/><circle cx="30" cy="30" r="25" fill="none" stroke="var(--ink)" stroke-width="6" stroke-linecap="round" stroke-dasharray="157" stroke-dashoffset="31" transform="rotate(-90 30 30)"/></svg>
+            <div class="lab">Mojo</div><div class="sub">the fire</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="step">
+          <div class="when">Up to 2 hours</div>
+          <h3>The vendor in the room</h3>
+          <p>One vendor takes the floor to introduce their company and products — and, crucially, how they can help MSPs, with special group pricing on the table for the room.</p>
+        </div>
+        <div class="step">
+          <div class="when">Up to 1 hour</div>
+          <h3>Business insights</h3>
+          <p>A focused session on something timely and useful — Cyber Essentials changes, team benefits, regulation, the things every owner should have on their radar.</p>
+        </div>
+        <div class="step">
+          <div class="when">5 mins each</div>
+          <h3>Sector insights</h3>
+          <p>A quick go-round on what everyone's seeing in the market and what to get ahead of before it lands on you.</p>
+        </div>
+        <div class="step">
+          <div class="when">Open floor</div>
+          <h3>What's working well</h3>
+          <p>Share the wins. What's actually moving the needle in your business right now — so everyone leaves with ideas to grow.</p>
+        </div>
+        <div class="step">
+          <div class="when">Open floor</div>
+          <h3>The fire station</h3>
+          <p>Burning issues on the table. Bring the thing that's keeping you up — the room helps you put it out.</p>
+        </div>
+        <div class="step">
+          <div class="when">To close</div>
+          <h3>Commercial pricing review</h3>
+          <p>Put what you're paying on the table. Where it makes sense, combine and buy as a group — a buying club for the room.</p>
+        </div>
+        <div class="step">
+          <div class="when">That evening</div>
+          <h3>The social</h3>
+          <p>Not always a bar. The host organises the evening — could be a padel comp, dinner and comedy, or drinks and food. The bit where the real conversations happen, however it's done.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACTS -->
+<section class="facts">
+  <div class="wrap">
+    <div class="fact-grid reveal">
+      <div class="fact"><div class="n">12</div><div class="l">Partners, maximum</div></div>
+      <div class="fact"><div class="n">8&nbsp;wks</div><div class="l">Between meetings</div></div>
+      <div class="fact"><div class="n">Thu</div><div class="l">Always a Thursday</div></div>
+      <div class="fact"><div class="n">£1m+</div><div class="l">Minimum revenue to join</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BETWEEN MEETINGS -->
+<section class="block between">
+  <div class="wrap between-grid">
+    <div class="reveal">
+      <span class="eyebrow">Between meetings</span>
+      <h2 style="font-size:clamp(2rem,4.4vw,3rem);margin:18px 0 18px">The room doesn't go quiet for eight weeks.</h2>
+      <p class="lead">Members stay in a private WhatsApp group between meetings — quick questions, second opinions, the supplier who let someone down, the win worth sharing. Support when you need it, not just every other Thursday.</p>
+    </div>
+    <div class="chat reveal" aria-hidden="true">
+      <div class="bub them"><span class="who">Member · Cardiff</span>Anyone dealt with a 3CX licensing migration recently? Quoted something that feels steep.</div>
+      <div class="bub me"><span class="who">You</span>Yeah — went through it in March. Send me the quote, I'll tell you what's fair.</div>
+      <div class="bub them"><span class="who">Member · Manchester</span>This is exactly why I joined. Owe you a drink at the next one 🍻</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOSTS -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Run by people who run MSPs</span>
+      <h2>Your hosts.</h2>
+    </div>
+    <div class="hosts-grid reveal">
+      <div class="host">
+        <div class="mono">Co-founder · Chair</div>
+        <div class="name">Jay Ball</div>
+        <div class="role">CEO, Flotek Group</div>
+        <p>Founder and director at Flotek, building a managed service provider across IT, voice, virtual desktop and AI-led services. Previously founded and exited a telecoms business. Brings the operator's view to every table.</p>
+      </div>
+      <div class="host">
+        <div class="mono">Co-founder · Chair</div>
+        <div class="name">Danny Mills</div>
+        <div class="role">CRO, Everything Tech</div>
+        <p>Chief Revenue Officer at Everything Tech, with a front-row seat on what's working commercially across the channel. Keeps the group focused on growth, pricing and the conversations that move numbers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="apply">
+  <div class="wrap">
+    <span class="eyebrow">Seats are limited</span>
+    <h2>Think you belong at the table?</h2>
+    <p>Seats are capped at twelve and approved by the existing members. Tell us about your business and we'll be in touch if there's a fit.</p>
+
+    <form class="form-card" id="seatForm" novalidate>
+      <div class="frow">
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input type="text" id="f-name" name="name" placeholder="Jane Smith" required />
+        </div>
+        <div class="field">
+          <label for="f-company">Company</label>
+          <input type="text" id="f-company" name="company" placeholder="Your MSP" required />
+        </div>
+      </div>
+      <div class="frow">
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" placeholder="you@company.co.uk" required />
+        </div>
+        <div class="field">
+          <label for="f-role">Your role</label>
+          <input type="text" id="f-role" name="role" placeholder="CEO / Owner / Founder" required />
+        </div>
+      </div>
+      <div class="frow">
+        <div class="field full">
+          <label for="f-rev">Annual revenue</label>
+          <select id="f-rev" name="revenue" required>
+            <option value="" disabled selected>Select a band</option>
+            <option>Under £1m</option>
+            <option>£1m – £2.5m</option>
+            <option>£2.5m – £5m</option>
+            <option>£5m – £10m</option>
+            <option>£10m+</option>
+          </select>
+        </div>
+      </div>
+      <div class="frow">
+        <div class="field full">
+          <label for="f-msg">Tell us about your business</label>
+          <textarea id="f-msg" name="message" placeholder="What you do, where you're based, and why MSPeer's a fit."></textarea>
+        </div>
+      </div>
+      <div class="form-foot">
+        <p class="form-note">By invitation and approved by the room. We only reach out if there's a fit.</p>
+        <button type="submit" class="btn brass">Request a seat</button>
+      </div>
+    </form>
+
+    <div class="form-success" id="seatSuccess">
+      <h3>Request received.</h3>
+      <p>Thanks — Jay and Danny will take a look and come back to you directly if there's a seat that fits.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">MS<b style="color:var(--brass-soft)">Peer</b></div>
+    <div class="runby">A managed service provider peer group · Run by <b>Flotek Group</b> &amp; <b>Everything Tech</b></div>
+  </div>
+</footer>
+
+<script>
+  // Build the ring of 12 seats
+  (function(){
+    const g = document.getElementById('seats');
+    if(!g) return;
+    const cx=180, cy=180, r=140, total=12;
+    // a few seats "taken" to imply scarcity / a forming group
+    const taken = new Set([0,1,2,4,5,7,9,11]);
+    for(let i=0;i<total;i++){
+      const ang = (i/total)*Math.PI*2 - Math.PI/2;
+      const x = cx + r*Math.cos(ang);
+      const y = cy + r*Math.sin(ang);
+      const isTaken = taken.has(i);
+      const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx',x.toFixed(1));
+      c.setAttribute('cy',y.toFixed(1));
+      c.setAttribute('r','14');
+      c.setAttribute('class','seat');
+      c.setAttribute('fill', isTaken ? 'var(--brass)' : 'var(--bone)');
+      c.setAttribute('stroke', isTaken ? 'var(--brass)' : 'var(--line)');
+      c.setAttribute('stroke-width','1.5');
+      c.style.animationDelay = (0.25 + i*0.06) + 's';
+      g.appendChild(c);
+    }
+  })();
+
+  // Request-a-seat form
+  // Works with zero backend: opens the visitor's email pre-filled.
+  // To capture submissions to an inbox instead, set FORM_ENDPOINT below to a
+  // Formspree / Cloudflare / Web3Forms URL and the form will POST to it.
+  (function(){
+    const FORM_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxxx"
+    const CONTACT_EMAIL  = "hello@mspeer.co.uk"; // change to the real inbox
+    const form = document.getElementById('seatForm');
+    const success = document.getElementById('seatSuccess');
+    if(!form) return;
+
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      if(!form.reportValidity()) return;
+      const d = Object.fromEntries(new FormData(form).entries());
+
+      if(FORM_ENDPOINT){
+        try{
+          const r = await fetch(FORM_ENDPOINT,{
+            method:'POST',
+            headers:{'Accept':'application/json'},
+            body:new FormData(form)
+          });
+          if(r.ok){ done(); return; }
+        }catch(err){ /* fall through to mailto */ }
+      }
+
+      // Fallback: open a pre-filled email
+      const subject = encodeURIComponent('MSPeer — Request a seat: ' + (d.company||''));
+      const body = encodeURIComponent(
+        'Name: ' + (d.name||'') + '\n' +
+        'Company: ' + (d.company||'') + '\n' +
+        'Email: ' + (d.email||'') + '\n' +
+        'Role: ' + (d.role||'') + '\n' +
+        'Annual revenue: ' + (d.revenue||'') + '\n\n' +
+        'About the business:\n' + (d.message||'')
+      );
+      window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+      done();
+    });
+
+    function done(){
+      form.style.display = 'none';
+      success.classList.add('show');
+      success.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  })();
+
+  (function(){
+    const els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    },{threshold:.15});
+    els.forEach(e=>io.observe(e));
+  })();
+</script>
+</body>
+</html>
