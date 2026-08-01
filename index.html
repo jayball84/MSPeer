@@ -54,18 +54,23 @@
   }
   h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.04;letter-spacing:-.01em}
   .lead{font-size:1.18rem;color:var(--muted);max-width:46ch}
+  section[id]{scroll-margin-top:120px}
 
   /* ---------- nav ---------- */
   header{
     position:sticky;top:0;z-index:50;
-    background:rgba(243,239,231,.82);
+    background:rgba(243,239,231,.92);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
-  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
-  .brand{font-family:var(--display);font-size:1.45rem;font-weight:600;letter-spacing:-.02em;display:flex;align-items:baseline;gap:2px}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:24px}
+  .brand{font-family:var(--display);font-size:1.45rem;font-weight:600;letter-spacing:-.02em;display:flex;align-items:baseline;gap:2px;flex-shrink:0}
+  .brand a{color:inherit}
   .brand b{color:var(--brass);font-weight:600}
-  .nav-right{display:flex;align-items:center;gap:26px}
+  .nav-links{display:flex;align-items:center;gap:26px;margin-left:auto}
+  .nav-links a{font-size:.9rem;font-weight:500;color:var(--ink);opacity:.75;transition:opacity .15s ease}
+  .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--cordovan)}
+  .nav-right{display:flex;align-items:center;gap:20px;flex-shrink:0}
   .nav-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
   .btn{
     display:inline-flex;align-items:center;gap:8px;
@@ -80,19 +85,28 @@
   .btn.ghost:hover{background:var(--ink);color:var(--paper)}
   .btn.brass{background:var(--brass);border-color:var(--brass);color:var(--ink)}
   .btn.brass:hover{background:var(--brass-soft);border-color:var(--brass-soft)}
+  @media(max-width:900px){.nav-links{display:none}}
   @media(max-width:680px){.nav-tag{display:none}}
 
-  /* ---------- next event bar ---------- */
+  /* ---------- next event bar (now inside sticky header) ---------- */
   .nextbar{background:var(--ink);color:var(--paper)}
-  .nextbar-in{display:flex;align-items:center;gap:12px;padding:11px 28px;font-size:.86rem;flex-wrap:wrap}
+  .nextbar-in{display:flex;align-items:center;gap:12px;padding:10px 28px;font-size:.86rem;flex-wrap:wrap}
   .ne-dot{width:8px;height:8px;border-radius:50%;background:var(--brass-soft);box-shadow:0 0 0 0 rgba(201,166,94,.6);animation:pulse 2.4s ease-out infinite;flex-shrink:0}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,166,94,.55)}70%{box-shadow:0 0 0 8px rgba(201,166,94,0)}100%{box-shadow:0 0 0 0 rgba(201,166,94,0)}}
   .ne-label{text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:600;color:var(--brass-soft)}
+  .ne-link-wrap{display:inline-flex;align-items:center;gap:10px;color:var(--paper);transition:color .15s ease;text-decoration:none}
+  .ne-link-wrap:hover{color:var(--brass-soft)}
+  .ne-link-wrap:hover .ne-arrow{transform:translateX(3px)}
   .ne-date{font-weight:600}
   .ne-sep{color:var(--muted)}
   .ne-meta{color:rgba(243,239,231,.66)}
-  .ne-link{margin-left:auto;font-weight:600;color:var(--brass-soft);white-space:nowrap}
-  .ne-link:hover{color:var(--paper)}
+  .ne-arrow{transition:transform .18s ease;color:var(--brass-soft)}
+  .ne-cta{margin-left:auto;font-weight:600;color:var(--brass-soft);white-space:nowrap}
+  .ne-cta:hover{color:var(--paper)}
+  @media(max-width:680px){
+    .nextbar-in{padding:9px 20px;gap:8px}
+    .ne-meta,.ne-sep{display:none}
+  }
   @media(max-width:680px){.ne-meta,.ne-sep{display:none}.ne-link{margin-left:0}}
 
   /* ---------- hero ---------- */
@@ -297,25 +311,32 @@
 
 <header>
   <div class="wrap nav">
-    <div class="brand">MS<b>Peer</b></div>
+    <div class="brand"><a href="/">MS<b>Peer</b></a></div>
+    <div class="nav-links">
+      <a href="/#how">How it works</a>
+      <a href="/next-event-agenda.html">Next event</a>
+      <a href="/#hosts">Hosts</a>
+    </div>
     <nav class="nav-right">
       <span class="nav-tag">By invitation</span>
       <a href="#apply" class="btn">Request a seat</a>
     </nav>
   </div>
-</header>
-
-<!-- NEXT EVENT BAR -->
-<div class="nextbar">
-  <div class="wrap nextbar-in">
-    <span class="ne-dot" aria-hidden="true"></span>
-    <span class="ne-label">Next event</span>
-    <span class="ne-date">Date TBC</span>
-    <span class="ne-sep">·</span>
-    <span class="ne-meta">Thursday · venue rotates between partners</span>
-    <a href="#apply" class="ne-link">Register interest →</a>
+  <!-- NEXT EVENT BAR (sticky along with header) -->
+  <div class="nextbar">
+    <div class="wrap nextbar-in">
+      <a href="/next-event-agenda.html" class="ne-link-wrap">
+        <span class="ne-dot" aria-hidden="true"></span>
+        <span class="ne-label">Next event</span>
+        <span class="ne-date">Thursday 17 September</span>
+        <span class="ne-sep">·</span>
+        <span class="ne-meta">Flotek Group, Bridgend</span>
+        <span class="ne-arrow">→</span>
+      </a>
+      <a href="/next-event-agenda.html" class="ne-cta">View agenda →</a>
+    </div>
   </div>
-</div>
+</header>
 
 <!-- HERO -->
 <section class="hero">
@@ -524,7 +545,7 @@
 </section>
 
 <!-- HOSTS -->
-<section class="block">
+<section class="block" id="hosts">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Run by people who run MSPs</span>

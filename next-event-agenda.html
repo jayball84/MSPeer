@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Next event — MSPeer · Thursday 17 September</title>
+<meta name="description" content="The next MSPeer meeting: Thursday 17 September at Flotek Group in Bridgend. Full running order, vendor and business insights sessions, lunch and office tour, evening social. Members' agenda for this event." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#1A1714;
+    --cordovan:#57211F;
+    --cordovan-deep:#3F1817;
+    --brass:#B0863C;
+    --brass-soft:#C9A65E;
+    --paper:#F3EFE7;
+    --bone:#FBF9F4;
+    --muted:#6E655A;
+    --line:#E0D8C9;
+    --line-dark:rgba(255,255,255,.14);
+
+    --display:"Fraunces",Georgia,serif;
+    --body:"Inter",system-ui,-apple-system,sans-serif;
+
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:600}
+  h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.04;letter-spacing:-.01em}
+  .lead{font-size:1.18rem;color:var(--muted);max-width:46ch}
+  section[id]{scroll-margin-top:140px}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(243,239,231,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:24px}
+  .brand{font-family:var(--display);font-size:1.45rem;font-weight:600;letter-spacing:-.02em;display:flex;align-items:baseline;gap:2px;flex-shrink:0}
+  .brand a{color:inherit}
+  .brand b{color:var(--brass);font-weight:600}
+  .nav-links{display:flex;align-items:center;gap:26px;margin-left:auto}
+  .nav-links a{font-size:.9rem;font-weight:500;color:var(--ink);opacity:.75;transition:opacity .15s ease}
+  .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--cordovan)}
+  .nav-right{display:flex;align-items:center;gap:20px;flex-shrink:0}
+  .nav-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--body);font-weight:600;font-size:.92rem;
+    background:var(--ink);color:var(--paper);
+    padding:11px 20px;border-radius:2px;border:1px solid var(--ink);
+    transition:transform .15s ease,background .2s ease;
+    cursor:pointer;
+  }
+  .btn:hover{background:var(--cordovan);border-color:var(--cordovan);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn.brass{background:var(--brass);border-color:var(--brass);color:var(--ink)}
+  .btn.brass:hover{background:var(--brass-soft);border-color:var(--brass-soft)}
+  @media(max-width:900px){.nav-links{display:none}}
+  @media(max-width:680px){.nav-tag{display:none}}
+
+  /* ---------- next event bar ---------- */
+  .nextbar{background:var(--ink);color:var(--paper)}
+  .nextbar-in{display:flex;align-items:center;gap:12px;padding:10px 28px;font-size:.86rem;flex-wrap:wrap}
+  .ne-dot{width:8px;height:8px;border-radius:50%;background:var(--brass-soft);box-shadow:0 0 0 0 rgba(201,166,94,.6);animation:pulse 2.4s ease-out infinite;flex-shrink:0}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,166,94,.55)}70%{box-shadow:0 0 0 8px rgba(201,166,94,0)}100%{box-shadow:0 0 0 0 rgba(201,166,94,0)}}
+  .ne-label{text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:600;color:var(--brass-soft)}
+  .ne-link-wrap{display:inline-flex;align-items:center;gap:10px;color:var(--paper)}
+  .ne-date{font-weight:600}
+  .ne-sep{color:var(--muted)}
+  .ne-meta{color:rgba(243,239,231,.66)}
+  .ne-cta{margin-left:auto;font-weight:600;color:var(--brass-soft);white-space:nowrap}
+  .ne-cta:hover{color:var(--paper)}
+  @media(max-width:680px){
+    .nextbar-in{padding:9px 20px;gap:8px}
+    .ne-meta,.ne-sep{display:none}
+  }
+
+  /* ---------- event hero ---------- */
+  .event-hero{padding:80px 0 64px;background:linear-gradient(180deg,var(--paper) 0%,var(--bone) 100%);border-bottom:1px solid var(--line)}
+  .event-hero h1{font-size:clamp(2.4rem,5.5vw,4rem);margin:18px 0 20px}
+  .event-hero h1 em{font-style:italic;color:var(--cordovan)}
+  .event-hero .lead{font-size:1.18rem;max-width:60ch;color:var(--muted)}
+  .event-meta{display:flex;flex-wrap:wrap;gap:44px;margin-top:44px;padding-top:36px;border-top:1px solid var(--line)}
+  .event-meta-item .mono{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:8px}
+  .event-meta-item .val{font-family:var(--display);font-size:1.3rem;color:var(--ink);font-weight:500;line-height:1.2}
+  .event-meta-item .val small{display:block;font-family:var(--body);font-size:.88rem;color:var(--muted);font-weight:400;margin-top:4px}
+
+  /* ---------- agenda day ---------- */
+  .block{padding:88px 0}
+  .sec-head{margin-bottom:44px;max-width:60ch}
+  .sec-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin:14px 0 14px}
+
+  .agenda-list{border-top:1px solid var(--line)}
+  .agenda-item{display:grid;grid-template-columns:140px 1fr;gap:36px;padding:28px 0;border-bottom:1px solid var(--line)}
+  .agenda-time{font-family:var(--display);font-size:1.35rem;color:var(--cordovan);font-weight:500;line-height:1.2}
+  .agenda-time .dur{display:block;font-family:var(--body);font-size:.78rem;color:var(--muted);letter-spacing:.05em;font-weight:400;margin-top:6px;text-transform:none}
+  .agenda-content .tag{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:600;display:inline-block;margin-bottom:8px}
+  .agenda-content h3{font-size:1.4rem;font-weight:500;margin-bottom:8px}
+  .agenda-content p{color:var(--ink);opacity:.82;max-width:60ch}
+
+  /* speaker card (used inline in agenda for vendor + business insights) */
+  .speaker-card{margin-top:20px;display:grid;grid-template-columns:160px 1fr;gap:28px;background:var(--bone);border:1px solid var(--line);padding:26px;border-radius:2px}
+  .speaker-photo{width:160px;height:160px;border-radius:50%;object-fit:cover;background:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:1.6rem;color:var(--muted);border:1px solid var(--line)}
+  .speaker-photo.placeholder{background:linear-gradient(135deg,var(--cordovan) 0%,var(--cordovan-deep) 100%);color:var(--brass-soft)}
+  .speaker-meta .sp-name{font-family:var(--display);font-size:1.4rem;font-weight:500;color:var(--ink);margin-bottom:2px}
+  .speaker-meta .sp-role{color:var(--muted);font-size:.95rem;margin-bottom:12px}
+  .speaker-meta .sp-bio{color:var(--ink);opacity:.85;font-size:.95rem;margin-bottom:16px}
+  .speaker-topic{border-top:1px solid var(--line);padding-top:14px}
+  .speaker-topic h4{font-family:var(--body);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:6px}
+  .speaker-topic p{color:var(--ink);font-size:.95rem;opacity:.9}
+  @media(max-width:680px){
+    .agenda-item{grid-template-columns:1fr;gap:8px}
+    .speaker-card{grid-template-columns:1fr;text-align:center}
+    .speaker-photo{margin:0 auto}
+  }
+
+  /* ---------- venue ---------- */
+  .venue-card{display:grid;grid-template-columns:1.2fr .8fr;gap:0;background:var(--bone);border:1px solid var(--line)}
+  .venue-info{padding:44px 40px}
+  .venue-info .mono{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:12px}
+  .venue-info h3{font-family:var(--display);font-size:2rem;font-weight:500;margin-bottom:14px}
+  .venue-info address{font-style:normal;font-size:1.05rem;line-height:1.7;color:var(--ink);margin-bottom:22px}
+  .venue-info address span{display:block}
+  .venue-actions{display:flex;gap:12px;flex-wrap:wrap}
+  .venue-map{background:var(--ink);color:var(--paper);padding:44px 40px;display:flex;flex-direction:column;justify-content:center}
+  .venue-map .mono{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-soft);font-weight:600;margin-bottom:12px}
+  .venue-map h4{font-family:var(--display);font-size:1.3rem;font-weight:500;margin-bottom:12px;color:var(--paper)}
+  .venue-map p{color:rgba(243,239,231,.78);font-size:.95rem;margin-bottom:8px}
+  @media(max-width:760px){.venue-card{grid-template-columns:1fr}}
+
+  /* ---------- social ---------- */
+  .social-card{background:var(--ink);color:var(--paper);padding:56px 48px;border-radius:2px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .social-card .eyebrow{color:var(--brass-soft)}
+  .social-card h2{color:var(--paper);font-size:2.2rem;margin:14px 0 16px}
+  .social-card p{color:rgba(243,239,231,.82);font-size:1.02rem;max-width:44ch}
+  .social-detail{background:rgba(255,255,255,.04);border:1px solid var(--line-dark);padding:28px}
+  .social-detail .mono{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-soft);font-weight:600;margin-bottom:10px}
+  .social-detail .val{font-family:var(--display);font-size:1.2rem;color:var(--paper);margin-bottom:4px}
+  .social-detail .val small{display:block;color:rgba(243,239,231,.6);font-size:.86rem;font-family:var(--body);margin-top:4px}
+  @media(max-width:760px){.social-card{grid-template-columns:1fr;padding:40px 28px}}
+
+  /* ---------- attendees ---------- */
+  .attendees-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
+  .attendee{background:var(--bone);border:1px solid var(--line);padding:24px 20px;text-align:center;position:relative;transition:transform .18s ease,box-shadow .18s ease}
+  .attendee:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,23,20,.08)}
+  .attendee-avatar{width:76px;height:76px;border-radius:50%;object-fit:cover;margin:0 auto 14px;background:var(--paper);border:1px solid var(--line)}
+  .attendee-avatar.initials{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--cordovan) 0%,var(--cordovan-deep) 100%);color:var(--brass-soft);font-family:var(--display);font-size:1.3rem;font-weight:500;border-color:var(--cordovan)}
+  .attendee-name{font-family:var(--display);font-size:1.05rem;font-weight:500;color:var(--ink);line-height:1.25;margin-bottom:4px}
+  .attendee-company{font-size:.85rem;color:var(--muted)}
+  .new-badge{position:absolute;top:12px;right:12px;background:var(--brass);color:var(--ink);padding:3px 9px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;border-radius:2px}
+
+  /* ---------- hosts (copied) ---------- */
+  .hosts-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .host{background:var(--bone);padding:38px 34px;position:relative}
+  .host-head{display:flex;align-items:center;gap:18px;margin-bottom:18px}
+  .host-avatar{width:82px;height:82px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--line);box-shadow:0 4px 14px rgba(26,23,20,.08)}
+  .host-head-meta{flex:1;min-width:0}
+  .host .mono{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-weight:600}
+  .host .name{font-family:var(--display);font-size:1.9rem;font-weight:500;margin:6px 0 2px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .host .role{color:var(--muted);font-size:.95rem}
+  .host p{color:var(--ink);font-size:.99rem;opacity:.85;margin-top:6px}
+  .host-linkedin{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--paper);color:var(--cordovan);border:1px solid var(--line);transition:background .18s ease,color .18s ease,transform .18s ease;flex-shrink:0}
+  .host-linkedin:hover{background:var(--cordovan);color:var(--bone);transform:translateY(-1px)}
+  .host-linkedin svg{width:16px;height:16px}
+  @media(max-width:680px){.hosts-grid{grid-template-columns:1fr}.host-head{gap:14px}.host-avatar{width:64px;height:64px}}
+
+  /* ---------- cta / form ---------- */
+  .cta{background:var(--cordovan);color:var(--paper);padding:88px 0}
+  .cta .eyebrow{color:var(--brass-soft)}
+  .cta h2{color:var(--paper);font-size:clamp(2rem,3.6vw,2.8rem);margin:14px 0 18px}
+  .cta p{color:rgba(243,239,231,.85);max-width:52ch;margin-bottom:32px}
+  .form-card{background:var(--bone);color:var(--ink);padding:36px;border-radius:2px;max-width:640px}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field.full{grid-column:1/-1}
+  .field label{font-size:.82rem;font-weight:600;letter-spacing:.02em;color:var(--ink)}
+  .field input,.field select,.field textarea{
+    font-family:var(--body);font-size:.98rem;color:var(--ink);
+    background:var(--paper);border:1px solid var(--line);
+    padding:12px 14px;border-radius:2px;outline:none;transition:border-color .15s ease;
+  }
+  .field textarea{min-height:110px;resize:vertical}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cordovan)}
+  .form-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:8px}
+  .form-note{color:var(--muted);font-size:.82rem;max-width:38ch}
+  .form-success{display:none;padding:36px;background:var(--ink);color:var(--paper);border-radius:2px;text-align:center}
+  .form-success.show{display:block}
+  .form-success h3{color:var(--brass-soft);font-family:var(--display);font-size:1.6rem;margin-bottom:8px}
+  .form-success p{color:rgba(243,239,231,.8);margin:0 auto;max-width:42ch}
+  @media(max-width:560px){.frow{grid-template-columns:1fr}.form-card{padding:24px}}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:rgba(243,239,231,.6);border-top:1px solid var(--line-dark)}
+  footer .wrap{padding:40px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  footer .brand{color:var(--paper);font-size:1.2rem}
+  footer .runby{font-size:.86rem}
+  footer .runby b{color:var(--brass-soft);font-weight:600}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand"><a href="/">MS<b>Peer</b></a></div>
+    <div class="nav-links">
+      <a href="/#how">How it works</a>
+      <a href="/next-event-agenda.html" class="active">Next event</a>
+      <a href="/#hosts">Hosts</a>
+    </div>
+    <nav class="nav-right">
+      <span class="nav-tag">By invitation</span>
+      <a href="#apply" class="btn">Request a seat</a>
+    </nav>
+  </div>
+  <div class="nextbar">
+    <div class="wrap nextbar-in">
+      <a href="/next-event-agenda.html" class="ne-link-wrap">
+        <span class="ne-dot" aria-hidden="true"></span>
+        <span class="ne-label">Next event</span>
+        <span class="ne-date">Thursday 17 September</span>
+        <span class="ne-sep">·</span>
+        <span class="ne-meta">Flotek Group, Bridgend</span>
+      </a>
+      <a href="#agenda" class="ne-cta">Jump to agenda →</a>
+    </div>
+  </div>
+</header>
+
+<!-- EVENT HERO -->
+<section class="event-hero">
+  <div class="wrap">
+    <span class="eyebrow">The next MSPeer meeting</span>
+    <h1>Thursday 17 September<br><em>at Flotek Group, Bridgend.</em></h1>
+    <p class="lead">A full day around the table — introductions, business insights, a vendor session with special group pricing, lunch and a tour of Flotek's operation, then the working-well and burning-issues rounds. Evening social organised by the host.</p>
+
+    <div class="event-meta">
+      <div class="event-meta-item">
+        <div class="mono">Date</div>
+        <div class="val">Thursday 17 September<small>10:00 – 16:00, then social</small></div>
+      </div>
+      <div class="event-meta-item">
+        <div class="mono">Host</div>
+        <div class="val">Jay Ball<small>Flotek Group</small></div>
+      </div>
+      <div class="event-meta-item">
+        <div class="mono">Venue</div>
+        <div class="val">Bocam Park, Bridgend<small>CF35 5LJ</small></div>
+      </div>
+      <div class="event-meta-item">
+        <div class="mono">Format</div>
+        <div class="val">In-person only<small>Board-level stand-in permitted</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section class="block" id="agenda">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The running order</span>
+      <h2>How the day runs.</h2>
+      <p class="lead" style="margin-top:14px">Six hours around the table, then evening. Timings are the plan — the room can bend them if a session's earning its keep.</p>
+    </div>
+
+    <div class="agenda-list reveal">
+
+      <!-- Arrivals -->
+      <div class="agenda-item">
+        <div class="agenda-time">10:00<span class="dur">15 min</span></div>
+        <div class="agenda-content">
+          <span class="tag">On arrival</span>
+          <h3>Coffee, pastries, and hellos.</h3>
+          <p>Doors open at Flotek. Coffee's on. Chance to catch up before the room settles.</p>
+        </div>
+      </div>
+
+      <!-- Welcome / host walkthrough -->
+      <div class="agenda-item">
+        <div class="agenda-time">10:15<span class="dur">30 min</span></div>
+        <div class="agenda-content">
+          <span class="tag">Introductions</span>
+          <h3>Welcome and host walkthrough.</h3>
+          <p>Jay opens the day with a walkthrough of Flotek Group — the real version, not the website version. The wins, the scars, the open questions. New faces at the table introduce themselves and their business.</p>
+        </div>
+      </div>
+
+      <!-- Scores on the doors -->
+      <div class="agenda-item">
+        <div class="agenda-time">10:45<span class="dur">30 min</span></div>
+        <div class="agenda-content">
+          <span class="tag">First on the agenda</span>
+          <h3>Scores on the doors.</h3>
+          <p>Round the table — a quick, honest read across three areas: <b>Business</b> (the numbers), <b>Personal</b> (life outside), and <b>Mojo</b> (the fire). Sets the tone for who needs propping up this round and where.</p>
+        </div>
+      </div>
+
+      <!-- Business insights -->
+      <div class="agenda-item">
+        <div class="agenda-time">11:15<span class="dur">up to 1 hour</span></div>
+        <div class="agenda-content">
+          <span class="tag">Business insights</span>
+          <h3>A focused session on something the room needs to know.</h3>
+          <p>Timely and useful — Cyber Essentials changes, team benefits, regulation, the stuff every owner should have on the radar.</p>
+
+          <div class="speaker-card">
+            <div class="speaker-photo placeholder" aria-hidden="true">TBC</div>
+            <div class="speaker-meta">
+              <div class="sp-name">Speaker to be confirmed</div>
+              <div class="sp-role">Topic and speaker announced closer to the date</div>
+              <p class="sp-bio">The business insights slot for this meeting is being finalised. Members will receive the speaker's name, background, and the topic they'll cover ahead of the event so you know exactly what to bring to the conversation.</p>
+              <div class="speaker-topic">
+                <h4>Presenting</h4>
+                <p>To be confirmed — likely covering something practical and time-sensitive for MSP owners this quarter.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What's working well -->
+      <div class="agenda-item">
+        <div class="agenda-time">12:15<span class="dur">30 min</span></div>
+        <div class="agenda-content">
+          <span class="tag">Open floor</span>
+          <h3>What's working well.</h3>
+          <p>Share the wins. What's actually moving the needle in your business right now — a channel, a hire, a product line, a process — so everyone leaves with ideas to grow.</p>
+        </div>
+      </div>
+
+      <!-- Lunch + Tour -->
+      <div class="agenda-item">
+        <div class="agenda-time">12:45<span class="dur">75 min</span></div>
+        <div class="agenda-content">
+          <span class="tag">Break</span>
+          <h3>Lunch and a tour of Flotek.</h3>
+          <p>Lunch on the house. Followed by a walkthrough of the Flotek operation — the SOC, the workshop, the office setup at Bocam Park. See how the sausage gets made and take away ideas for your own business.</p>
+        </div>
+      </div>
+
+      <!-- Vendor in the room -->
+      <div class="agenda-item">
+        <div class="agenda-time">14:00<span class="dur">up to 90 min</span></div>
+        <div class="agenda-content">
+          <span class="tag">The vendor in the room</span>
+          <h3>One vendor. Two aims: understand the room, and earn it.</h3>
+          <p>A single vendor joins us for the afternoon to introduce their company and products — and, crucially, how they help MSPs — with special group pricing on the table for members who want to consolidate.</p>
+
+          <div class="speaker-card">
+            <div class="speaker-photo placeholder" aria-hidden="true">TBC</div>
+            <div class="speaker-meta">
+              <div class="sp-name">Vendor to be confirmed</div>
+              <div class="sp-role">Company, sector and group offer announced ahead of the meeting</div>
+              <p class="sp-bio">The vendor slot for this meeting is being finalised. Confirmed vendors receive up to 90 minutes with the room and are expected to bring a genuine group-pricing offer for members, not a generic pitch. Details will land in the Brigade WhatsApp closer to the date.</p>
+              <div class="speaker-topic">
+                <h4>Presenting</h4>
+                <p>To be confirmed — company overview, MSP-specific product fit, live demo where relevant, and the commercial offer for the room.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sector insights -->
+      <div class="agenda-item">
+        <div class="agenda-time">15:30<span class="dur">15 min</span></div>
+        <div class="agenda-content">
+          <span class="tag">5 mins each</span>
+          <h3>Sector insights.</h3>
+          <p>A quick go-round on what everyone's seeing in the market — pricing shifts, vendor moves, customer behaviour, anything worth getting ahead of before it lands on you.</p>
+        </div>
+      </div>
+
+      <!-- Commercial pricing review -->
+      <div class="agenda-item">
+        <div class="agenda-time">15:45<span class="dur">10 min</span></div>
+        <div class="agenda-content">
+          <span class="tag">Buying club</span>
+          <h3>Commercial pricing review.</h3>
+          <p>Put what you're paying on the table. Where it makes sense, combine and buy as a group — better pricing for the room without any of us doing individual deals.</p>
+        </div>
+      </div>
+
+      <!-- Fire station / close -->
+      <div class="agenda-item">
+        <div class="agenda-time">15:55<span class="dur">5 min</span></div>
+        <div class="agenda-content">
+          <span class="tag">To close</span>
+          <h3>Fire station and wrap.</h3>
+          <p>Any burning issues that haven't found a home in the day. The room helps you put them out — or the conversation carries into Brigade for the next eight weeks.</p>
+        </div>
+      </div>
+
+      <!-- Close -->
+      <div class="agenda-item">
+        <div class="agenda-time">16:00</div>
+        <div class="agenda-content">
+          <span class="tag">Formal close</span>
+          <h3>Close of business.</h3>
+          <p>Break, freshen up, and reconvene for the social.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section class="block" id="venue" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Getting there</span>
+      <h2>Where we're meeting.</h2>
+    </div>
+    <div class="venue-card reveal">
+      <div class="venue-info">
+        <div class="mono">Host venue</div>
+        <h3>Flotek Group</h3>
+        <address>
+          <span>4 Oldfield Road</span>
+          <span>Bocam Park</span>
+          <span>Bridgend</span>
+          <span>CF35 5LJ</span>
+        </address>
+        <div class="venue-actions">
+          <a href="https://www.google.com/maps/search/?api=1&query=Flotek+Group+4+Oldfield+Road+Bocam+Park+Bridgend+CF35+5LJ" target="_blank" rel="noopener" class="btn">Open in Google Maps →</a>
+          <a href="https://maps.apple.com/?q=Flotek+Group+4+Oldfield+Road+Bocam+Park+Bridgend+CF35+5LJ" target="_blank" rel="noopener" class="btn ghost">Apple Maps →</a>
+        </div>
+      </div>
+      <div class="venue-map">
+        <div class="mono">Practicalities</div>
+        <h4>Free parking on site.</h4>
+        <p>M4 J35 is 5 minutes away. Bridgend station is 10 minutes by cab if you're coming by train. Coffee and pastries provided on arrival, lunch is on the house.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section class="block" id="social" style="padding-top:0">
+  <div class="wrap">
+    <div class="social-card reveal">
+      <div>
+        <span class="eyebrow">That evening</span>
+        <h2>The social.</h2>
+        <p>The bit where the real conversations happen. Not always a bar — the host organises the evening. For this one, Jay's got something in the works. Details will land in Brigade ahead of the date, but block the evening.</p>
+      </div>
+      <div class="social-detail">
+        <div class="mono">This event</div>
+        <div class="val">Evening plan · TBC<small>Venue and format confirmed in Brigade nearer the time</small></div>
+        <div class="val" style="margin-top:22px">Dress code · Smart casual<small>You're going straight from the boardroom to the evening — dress once</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATTENDEES -->
+<section class="block" id="attendees" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Who's in the room</span>
+      <h2>Members attending.</h2>
+      <p class="lead" style="margin-top:14px">Twelve seats around the table. Confirmed attendees for this meeting.</p>
+    </div>
+
+    <div class="attendees-grid reveal">
+      <div class="attendee">
+        <img class="attendee-avatar" src="assets/jay.jpg" alt="Jay Ball" width="76" height="76" />
+        <div class="attendee-name">Jay Ball</div>
+        <div class="attendee-company">Flotek Group</div>
+      </div>
+      <div class="attendee">
+        <img class="attendee-avatar" src="assets/danny.jpg" alt="Danny Mills" width="76" height="76" />
+        <div class="attendee-name">Danny Mills</div>
+        <div class="attendee-company">Everything Tech</div>
+      </div>
+      <div class="attendee">
+        <span class="new-badge">New</span>
+        <div class="attendee-avatar initials" aria-hidden="true">TBC</div>
+        <div class="attendee-name">Seat confirmed</div>
+        <div class="attendee-company">Name & company TBC</div>
+      </div>
+      <div class="attendee">
+        <div class="attendee-avatar initials" aria-hidden="true">TBC</div>
+        <div class="attendee-name">Seat confirmed</div>
+        <div class="attendee-company">Name & company TBC</div>
+      </div>
+      <div class="attendee">
+        <div class="attendee-avatar initials" aria-hidden="true">TBC</div>
+        <div class="attendee-name">Seat confirmed</div>
+        <div class="attendee-company">Name & company TBC</div>
+      </div>
+      <div class="attendee">
+        <span class="new-badge">New</span>
+        <div class="attendee-avatar initials" aria-hidden="true">TBC</div>
+        <div class="attendee-name">Seat confirmed</div>
+        <div class="attendee-company">Name & company TBC</div>
+      </div>
+      <div class="attendee">
+        <div class="attendee-avatar initials" aria-hidden="true">TBC</div>
+        <div class="attendee-name">Seat confirmed</div>
+        <div class="attendee-company">Name & company TBC</div>
+      </div>
+      <div class="attendee">
+        <div class="attendee-avatar initials" aria-hidden="true">TBC</div>
+        <div class="attendee-name">Seat confirmed</div>
+        <div class="attendee-company">Name & company TBC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOSTS -->
+<section class="block" id="hosts" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Run by people who run MSPs</span>
+      <h2>Your hosts.</h2>
+    </div>
+    <div class="hosts-grid reveal">
+      <div class="host">
+        <div class="host-head">
+          <img class="host-avatar" src="assets/jay.jpg" alt="Jay Ball" width="82" height="82" loading="lazy" />
+          <div class="host-head-meta">
+            <div class="mono">Co-founder · Chair</div>
+            <div class="name">Jay Ball
+              <a class="host-linkedin" href="https://www.linkedin.com/in/jayb4ll/" target="_blank" rel="noopener" aria-label="Jay Ball on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              </a>
+            </div>
+            <div class="role">CEO, Flotek Group</div>
+          </div>
+        </div>
+        <p>Founder and director at Flotek, building a managed service provider across IT, voice, virtual desktop and AI-led services. Previously founded and exited a telecoms business. Brings the operator's view to every table.</p>
+      </div>
+      <div class="host">
+        <div class="host-head">
+          <img class="host-avatar" src="assets/danny.jpg" alt="Danny Mills" width="82" height="82" loading="lazy" />
+          <div class="host-head-meta">
+            <div class="mono">Co-founder · Chair</div>
+            <div class="name">Danny Mills
+              <a class="host-linkedin" href="https://www.linkedin.com/in/danny-mills-0033271b/" target="_blank" rel="noopener" aria-label="Danny Mills on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              </a>
+            </div>
+            <div class="role">CRO, Everything Tech</div>
+          </div>
+        </div>
+        <p>Chief Revenue Officer at Everything Tech, with a front-row seat on what's working commercially across the channel. Keeps the group focused on growth, pricing and the conversations that move numbers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / FORM -->
+<section class="cta" id="apply">
+  <div class="wrap">
+    <span class="eyebrow">Seats are limited</span>
+    <h2>Think you belong at the table?</h2>
+    <p>Seats are capped at twelve and approved by the existing members. Tell us about your business and we'll be in touch if there's a fit.</p>
+
+    <form class="form-card" id="seatForm" novalidate>
+      <input type="hidden" name="access_key" value="54e3c33a-11c7-463a-9620-03ab2824cf51" />
+      <input type="hidden" name="subject" value="MSPeer — new request-a-seat submission (from Next event page)" />
+      <input type="hidden" name="from_name" value="MSPeer website" />
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+      <div class="frow">
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input type="text" id="f-name" name="name" placeholder="Jane Smith" required />
+        </div>
+        <div class="field">
+          <label for="f-company">Company</label>
+          <input type="text" id="f-company" name="company" placeholder="Your MSP" required />
+        </div>
+      </div>
+      <div class="frow">
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" placeholder="you@company.co.uk" required />
+        </div>
+        <div class="field">
+          <label for="f-role">Your role</label>
+          <input type="text" id="f-role" name="role" placeholder="CEO / Owner / Founder" required />
+        </div>
+      </div>
+      <div class="frow">
+        <div class="field full">
+          <label for="f-rev">Annual revenue</label>
+          <select id="f-rev" name="revenue" required>
+            <option value="" disabled selected>Select a band</option>
+            <option>Under £1m</option>
+            <option>£1m – £2.5m</option>
+            <option>£2.5m – £5m</option>
+            <option>£5m – £10m</option>
+            <option>£10m+</option>
+          </select>
+        </div>
+      </div>
+      <div class="frow">
+        <div class="field full">
+          <label for="f-msg">Tell us about your business</label>
+          <textarea id="f-msg" name="message" placeholder="What you do, where you're based, and why MSPeer's a fit."></textarea>
+        </div>
+      </div>
+      <div class="form-foot">
+        <p class="form-note">By invitation and approved by the room. We only reach out if there's a fit.</p>
+        <button type="submit" class="btn brass">Request a seat</button>
+      </div>
+    </form>
+
+    <div class="form-success" id="seatSuccess">
+      <h3>Request received.</h3>
+      <p>Thanks — Jay and Danny will take a look and come back to you directly if there's a seat that fits.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="brand">MS<b style="color:var(--brass-soft)">Peer</b></div>
+    <div class="runby">A managed service provider peer group · Run by <b>Flotek Group</b> &amp; <b>Everything Tech</b></div>
+  </div>
+</footer>
+
+<script>
+  // Request-a-seat form — same behaviour as the home page.
+  (function(){
+    const CONTACT_EMAIL = "jb@flotek.io";
+    const form = document.getElementById('seatForm');
+    const success = document.getElementById('seatSuccess');
+    if(!form) return;
+
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      if(!form.reportValidity()) return;
+      const d = Object.fromEntries(new FormData(form).entries());
+      const key = form.querySelector('input[name="access_key"]').value;
+
+      if(key && key !== "YOUR_WEB3FORMS_ACCESS_KEY_HERE"){
+        try{
+          const r = await fetch('https://api.web3forms.com/submit',{
+            method:'POST',
+            headers:{'Accept':'application/json'},
+            body:new FormData(form)
+          });
+          if(r.ok){ done(); return; }
+        }catch(err){ /* fall through to mailto */ }
+      }
+
+      const subject = encodeURIComponent('MSPeer — Request a seat: ' + (d.company||''));
+      const body = encodeURIComponent(
+        'Name: ' + (d.name||'') + '\n' +
+        'Company: ' + (d.company||'') + '\n' +
+        'Email: ' + (d.email||'') + '\n' +
+        'Role: ' + (d.role||'') + '\n' +
+        'Annual revenue: ' + (d.revenue||'') + '\n\n' +
+        'About the business:\n' + (d.message||'')
+      );
+      window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+      done();
+    });
+
+    function done(){
+      form.style.display = 'none';
+      success.classList.add('show');
+      success.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  })();
+
+  // Scroll reveals
+  (function(){
+    const els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    },{threshold:.15});
+    els.forEach(e=>io.observe(e));
+  })();
+</script>
+</body>
+</html>
